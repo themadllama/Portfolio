@@ -15,11 +15,12 @@ buttons[1].addEventListener("click", ()=>{
 })
 
 function countTruthy(array){
-    let message = ""
+    let message = `There are ${array.length} truthy values <br>`
     let x = array.length
     for(x=0;x<array.length;x++){
         if(array[x]) message+=(`${array[x]} is a truthy<br>`)
         else message+=(`${array[x]} is a falsy<br>`)
     }
+
     return(message)
 }
