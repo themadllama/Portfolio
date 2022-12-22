@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+h1{
+    display: inline-block;
+}
+img{
+    display: inline-block;
+    height:50px;
+}
+span{
+    width:100%;
+}
+input{
+    
+    margin:2rem 0;
+    display:inline-block;
+}
+label{
+    display: inline;
+}
+button{
+    display: block;
+    margin-left: 0rem;
+}    

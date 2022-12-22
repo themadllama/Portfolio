@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+}
+button:nth-of-type(2){
+    display: block;
+    width:150px;
+    height:100px;
+    margin-top:3rem;
+}
+    
