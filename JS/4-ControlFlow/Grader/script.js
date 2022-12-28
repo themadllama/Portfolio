@@ -16,5 +16,4 @@ function calculateAverage(array){
     for(let x = 0;x<marks.length;x++)
         total += marks[x];
     return(total/marks.length);
-
 }

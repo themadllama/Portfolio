@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+.sideBySide{
+    display:flex;
+    flex-direction: row;
+    margin:10vh 0;
+}
+
+img{
+    max-width: 50vw;
+    margin-left:5vw;
+}
+.container{
+    margin:10rem;
+    max-width:80vw;
+}
+label{
+    min-width:45%
+}
+    

@@ -7,10 +7,14 @@ body{
     margin:2rem;
     background-color: rgb(173, 208, 209);
 }
-h1{
+.h1{
     font:900 40pt sans-serif;
     
 }
+.h2{
+    font:900 28pt sans-serif;
+}
+
 label{
     margin-top:2rem;
     display: block;

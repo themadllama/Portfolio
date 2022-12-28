@@ -6,12 +6,13 @@ button.addEventListener("click",()=>{
     output.innerHTML = " ";
     
     for(x=0;x<=userInput;x++){
-    // Below is original, works and is efficient, but second 
-    // solution is simpler for human to read
-
-    // x%2===0 ? output.innerHTML += `${x} is even<br>` : output.innerHTML += `${x} is odd<br>`
-    
     const message = x%2===0 ? "Even" : "Odd";
     output.innerHTML += `${x} - ${message} <br>`;
 }
 })
+
+
+    // Below is original, works and is efficient, but second 
+    // solution is simpler for human to read
+
+    // x%2===0 ? output.innerHTML += `${x} is even<br>` : output.innerHTML += `${x} is odd<br>`
