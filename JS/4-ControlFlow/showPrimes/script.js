@@ -1,19 +1,13 @@
-showPrimes(16)
+showPrimes(32)
 function showPrimes(num){
-    let primes =[];
-    let isItPrime = 3
-    while(isItPrime<num){
+    let primes = [];
+    let prime = true;
+    for ( let row = 2;row<num;row++){
+        for(let col=2;col<row;col++){
+            if (row%col ===0) prime = false;
+        }
+        if (prime === true) primes.push(row)
         prime = true
-        for(let i = 2;i<isItPrime;i++)
-            if(isItPrime%i === 0){
-
-            }else{
-                
-            }
-             ? prime===false:console.log(isItPrime%i)
-        console.log(`${isItPrime} prime is ${prime}`)
-        isItPrime++
     }
-e
     console.log(primes)
 }
