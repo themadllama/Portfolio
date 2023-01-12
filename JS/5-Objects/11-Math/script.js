@@ -2,7 +2,7 @@ function experiment(){
     //
 
 
-    return 0;
+    return `<div class="code">Math.PI should return ${Math.PI}</div>`;
 }
 
 
