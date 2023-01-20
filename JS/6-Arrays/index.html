@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Arrays Notes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="h1">Arrays</div>    
+
+    <div class="h2">2-Adding Elements</div>
+        <div class="text">
+            <br>Push adds to the end of array
+            <br>unshift adds at the beginning
+            <br>unshift adds at the beginning
+            <br> Splice can add to middle
+    </div>
+    <div class="output">
+        const num = [3,4];<br><br>
+        
+        num.push(17);<br>
+        
+        num.unshift(1,2);<br>
+        
+        num.splice(num.length/2,1,76);<br>
+    
+        </div>
+    <div class="h2">3-Finding Elements</div>
+        <div class="text">
+            <br>Index ofreturns index of element in Array
+            <br>if not there, it returns -1
+        </div>
+        <div class="output">
+            const num = [1,2,3,1,4];<br>
+
+            let toReturn = num;<br>
+            toReturn += `<br> indexOf a ${num.indexOf('a')}`;<br>
+            toReturn += `<br> indexOf 1 ${num.indexOf(1)}`;<br>
+            toReturn += `<br> lastIndexOf 1 ${num.lastIndexOf(1)}`;<br>
+            toReturn += `<br> 1 exists ${num.includes(1)}`;<br>
+            return toReturn;<br>
+
+        </div>
+
+    <div class="h2">4-Finding Reference Elements</div>
+        <div class="text">
+        <br> Includes won't work for reference elements
+        <br> Find is better for these
+        </div>
+        <div class="output">
+            const courses = [<br>
+            {id:1, name:"a"},<br>
+            {id:2, name:"b"},<br>
+        ];<br>
+
+    
+        const course = courses.find(function(course){<br>
+            return course.name === "b";<br>
+        });<br>
+        return course.id+" "+course.name;<br>
+            
+        </div>
+    <div class="h2">5-Arrow Functions</div>
+    <div class="text">
+    <br> Includes won't work for reference elements
+    <br> Find is better for these
+
+    <br> Arrow Functions are much more efficient here 
+    </div>
+    <div class="output"><br>
+        const courses = [<br>
+        {id:1, name:"a"},<br>
+        {id:2, name:"b"},<br>
+    ];<br><br>
+
+    const course = courses.find(course=>course.name === "b");<br>
+    return course.id+" "+course.name;<br>
+        
+    </div>
+    <div class="h2">7-EmptyingArrays</div>
+    <div class="text">
+<br> 3 ways to remove elements
+<br>Solution 1 ( can't be const)
+<br>Solution 2 - length
+<br>Solution3 - splice
+<br>solution 4 - while ( bad )
+    </div>
+    <div class="output">
+        
+        let numbers = [1,2,3,4];<br>
+    
+        
+        numbers = [1,2,3,4];<br>
+        numbers = [];<br>
+        console.log(numbers);<br>
+        
+        numbers = [1,2,3,4];<br>
+        numbers.length=0;<br>
+        console.log(numbers);<br>
+        
+        numbers = [1,2,3,4];<br>
+        numbers.splice(0,numbers.length);<br>
+        console.log(numbers);<br>
+        
+        numbers = [1,2,3,4];<br>
+        while(numbers.length>0)<br>
+            numbers.pop();<br>
+        console.log(numbers)<br>
+        
+    </div>
+    <div class="h2">8-Combine and Slice</div>
+    <div class="text">
+
+    </div>
+    <div class="output">
+        const first =[1,2,3];<br>
+        const second = [4,5,6];<br>
+    
+        let toReturn=`First ${first} and second ${second}`;<br>
+        toReturn+=`<br>Concat First+second - `+first.concat(second);<br>
+    
+        return toReturn;<br>
+        
+    </div>
+    <div class="h2">9-Spread Operator</div>
+    <div class="text">
+        <br>Spread Operator
+    </div>
+    <div class="output">
+        
+        const first =[1,2,3];<br>
+        const second = [4,5,6];<br>
+    
+        let toReturn=`First ${first} and second ${second}`;<br>
+        const combo = [...first,...second];<br>
+        toReturn+=`<br>const combo = [...first,...second] ${combo}`;<br>
+        
+        toReturn+=`<br>Concat First+second - `+first.concat(second);<br>
+    
+        return toReturn;<br>
+    }
+        
+    </div>
+    <div class="h2">10-Iterating an Array</div>
+    <div class="text">
+<br> Simple way of iterating
+        <br>for each
+    </div>
+    <div class="output">
+        const num = [1,2,3];<br>
+        let toReturn = "";<br>
+        
+        for(let number of num)<br>
+            toReturn+= number+", ";<br>
+    
+
+        num.forEach((number,index)=>toReturn+= index+" is  "+number+"<br> ");<br>
+    
+    
+    
+        return toReturn;<br>
+        
+    </div>
+    <div class="h2">11-Joining an Array</div>
+    <div class="text">
+        
+    </div>
+    <div class="output">
+        const num = [1,2,3];<br>
+        let msg = "AFC,Rock,Franchise,Suck"
+        const joined = msg.split(" ");<br>
+        console.log(joined);<br>
+    
+        let sentence = joined.join(" ")<br>
+        console.log(sentence)<br>
+    
+        sentence = sentence.replaceAll(","," ")<br>
+        console.log(sentence)<br>
+        
+    </div>
+    <div class="h2">12-Sorting An Array</div>
+    <div class="text">
+        <br>Sort sorts single arrays
+        <br>Reverse shows values in reverse
+    </div>
+    <div class="output">
+        const num = [2,3,1];<br>
+        
+        num.sort();<br>
+        console.log(num);<br>
+    
+        
+        num.reverse();<br>
+        console.log(num);<br>
+        
+    </div>
+    <div class="h2">Filtering An array</div>
+    <div class="text">Filter lets you filter arrays by a criteria</div>
+    <div class="output">
+        const numbers = [1,-1,2,3];<br>
+
+        const filtered = numbers.filter(function(value){
+             return value >=0;<br>
+        });<br>
+        
+        console.log(filtered);<br>
+        
+        //Can be Simplified to <br>
+        
+        const filtered = numbers.filter(value =>value >=0);<br>
+        
+
+    </div>
+
+    <div class="h2">Mapping an array</div>
+    <div class="text">in ES6, we can map array objects to other items. </div>
+    <div class="output"></div>
+
+    <div class="h2">Reduce</div>
+    <div class="text">Reduce can summarise an entire array mathmatically <br>
+    Here, it is adding 
+    <img src="img/reduce1.PNG" alt="" class="output">
+    The 0 after the criteria is the accumulator start value
+         </div>
+
+    
+     
+    <div class="h1">Exercises</div>
+
+    <div class="h2">Ex1.Array from range</div>
+    <div class="text">Make a function with 2 parameters that will return an array with values from and to those in the parameters</div>
+    <img src="img/Ex1.PNG" alt="" class="output">
+
+
+    <div class="h2">Ex2. Own Includes function</div>
+    <div class="text">Write a function that checks if a list contains a variable</div>
+    <img src="img/Ex2.PNG" alt="" class="output">
+
+    <div class="h2">Ex3. Exceptions</div>
+    <div class="text">Make a function which takes an array and a variable and returns an array without the variable</div>
+    <img src="img/Ex3.PNG" alt="" class="output">
+
+    <div class="h2">Ex.4</div>
+    <div class="text"></div>
+    <img src="img/Ex4.PNG" alt="" class="output">
+
+    <div class="h2">Ex.5</div>
+    <div class="text">Counts occurences</div>
+    <img src="img/Ex5.PNG" alt="" class="output">
+
+    <div class="h2">Ex.6</div>
+    <div class="text">Gets the Highest Value from an array</div>
+    <img src="img/Ex6.PNG" alt="" class="output">
+
+</body>
+</html>
