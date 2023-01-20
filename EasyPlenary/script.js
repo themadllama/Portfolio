@@ -3,10 +3,8 @@ console.log(scrambler("Giraffe"))
 function scrambler(word){
     const original = word;
     word = word.toLowerCase();
-    
     for (let x =0;x<word.length;x++)
-        word = swap(word,x,Math.floor(Math.random()*word.length))
-        
+        word = swap(word,x,Math.floor(Math.random()*word.length)) 
     return([original,word])
 }
 
