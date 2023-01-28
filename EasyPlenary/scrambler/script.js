@@ -3,6 +3,8 @@ document.querySelector(".reset").addEventListener("click",reset)
 document.querySelector(".add").addEventListener("click",()=>{
     words.push(document.querySelector("textarea").value)
     document.querySelector("textarea").value = "";
+    document.querySelector("textarea").focus();
+    
 });
 
 document.querySelector(".submit").addEventListener("click",function (){
@@ -10,7 +12,7 @@ document.querySelector(".submit").addEventListener("click",function (){
     let sentences = document.querySelector(".myList")
     for(let i = 0;i<words.length;i++){
         para = document.createElement("h3")
-        para.innerText = scrambler(words[i])
+        para.innerHTML = scrambler(words[i])
             sentences.appendChild(para)
     }
     switchWindow();
@@ -32,7 +34,6 @@ function reset(){
     switchWindow();
     let allLi = document.querySelectorAll("h3");
     while(sentences.firstElementChild != null){
-        console.log(sentences.firstElementChild)
         sentences.removeChild(sentences.firstElementChild);
     }
     words = []
@@ -49,6 +50,7 @@ function scrambler(word){
         word[rnd] = tmp;
     }
     word = word.join().replaceAll(",",splitGap).toLowerCase()
+    word = word + "<br>____________________________________"
     return(word)
 }
 
