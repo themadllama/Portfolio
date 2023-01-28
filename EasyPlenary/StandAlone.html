@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrambler</title>
+    <style>
+        *{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+.screen{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 200VH;
+    justify-content: center;
+    align-items: center;
+    margin:10vh auto;
+    width:80vw;
+    height:80vh;
+    padding:5vw;
+}
+
+.input{
+    background-color:rgb(10, 148, 28);
+    box-shadow: 1vh 1vh rgba(160, 224, 31, 0.52);
+
+}
+.heading{
+    font:800 3em Sans-serif;
+}
+p{
+    font:600 2em Sans-serif;
+}
+li{
+    font:600 3em Sans-serif;
+}
+.textBox{
+    margin:5vh 1vw;
+    height:5vh;
+    width:70vw;
+    font:2em Sans-serif;
+}
+.add,.submit{
+    padding:1vh;
+    font:600 1.5em sans-serif;
+}
+.reset{
+    margin-top:5vh;
+    padding:1vh;
+    font:600 1.5em sans-serif;
+}
+.output{
+    background-color:rgba(160, 224, 31, 0.52);
+    box-shadow: 1vh 1vh rgb(10, 148, 28);
+}
+.toPrint{
+    background-color: #fff;
+    border: 0.5vw black solid;
+    padding:2vw;
+}
+    </style>
+</head>
+<body>
+    <div class="screen input">
+        <div class="heading">South Craven Scrambler</div>
+        <p>Enter keywords, or key sentences and it will be rearranged for you to paste into word/gdocs and print out as a starter or plenary</p>
+        <div class="areas">
+            <input type="text" class="textBox">
+        </div>
+        <div class="buttons">
+            <button class="add">Add</button>
+            <button class="submit">Submit</button>
+        </div>
+         
+    </div>
+
+    <div class="screen output">
+            <div class="toPrint">
+                <div class="heading">The Scrambler</div>
+                <p>Re-arrange the following</p>
+                <div class="myList"></div>
+            </div>
+            
+            <button class="reset">Reset</button>
+    </div>
+    <script>
+        let words=[];
+document.querySelector(".reset").addEventListener("click",reset);
+document.querySelector(".add").addEventListener("click",adder);
+
+function adder(){
+    words.push(document.querySelector(".textBox").value)
+    document.querySelector(".textBox").value = "";
+    document.querySelector(".textBox").focus();
+    
+}
+document.querySelector(".submit").addEventListener("click",function (){
+    if(words.length === 0){
+        alert("Please Add a Value")
+        return null;
+    }
+        
+    let text = scrambler(document.querySelector(".textBox").value)
+    let sentences = document.querySelector(".myList")
+    for(let i = 0;i<words.length;i++){
+        para = document.createElement("h3")
+        para.innerHTML = scrambler(words[i])
+            sentences.appendChild(para)
+    }
+    switchWindow();
+
+});
+function switchWindow(){
+    let output = document.querySelector(".output");
+    let input = document.querySelector(".input");
+    if (output.style.display === "flex"){
+        input.style.display = "flex";
+        output.style.display = "none";
+    }else{
+        input.style.display = "none";
+        output.style.display = "flex";
+    }
+}
+function reset(){
+    let sentences = document.querySelector(".myList")
+    switchWindow();
+    let allLi = document.querySelectorAll("h3");
+    while(sentences.firstElementChild != null){
+        sentences.removeChild(sentences.firstElementChild);
+    }
+    words = []
+
+}
+function scrambler(word){
+    let rnd,splitGap;
+    word.split(" ").length > 2 ? splitGap = " " : splitGap = "";
+    word = word.split(splitGap)
+    for(let x =0;x<word.length;x++){
+        rnd = Math.floor(Math.random()*word.length);
+        tmp = word[x];
+        word[x] = word[rnd];
+        word[rnd] = tmp;
+    }
+    word = word.join().replaceAll(",",splitGap).toLowerCase()
+    let space = "__"
+    for (let x = 0 ; x<word.length;x++){
+        space+="__"
+    }
+    word = word + "<br>"+space;
+    return(word)
+}
+
+
+
+
+    </script>
+</body>
+</html>
