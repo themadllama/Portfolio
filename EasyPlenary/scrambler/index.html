@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="screen input">
-        <div class="heading">Scrambler</div>
-        <p>Enter text into the box below, be it a sentence or a single word to have it scrambled</p>
+        <div class="heading">South Craven Scrambler</div>
+        <p>Enter a keyword, or a key sentence and it will be rearranged for students to try and decrypt</p>
         <div class="areas">
-            <textarea name="sentence" id="sentence" cols="30" rows="10"></textarea>
+            <input type="text" class="textBox">
         </div>
         <div class="buttons">
             <button class="add">Add</button>
@@ -23,14 +23,13 @@
     </div>
 
     <div class="screen output">
-            
-            <div class="heading">Scrambler</div>
-            <p>Re-arrange the following</p>
-            <div class="myList">
-                
+            <div class="toPrint">
+                <div class="heading">The Scrambler</div>
+                <p>Re-arrange the following</p>
+                <div class="myList"></div>
             </div>
+            
             <button class="reset">Reset</button>
-
     </div>
     <script src="script.js"></script>
 </body>

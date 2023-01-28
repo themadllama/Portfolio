@@ -7,7 +7,7 @@
 .screen{
     display: flex;
     flex-direction: column;
-    flex-grow: 80%;
+    flex-grow: 200VH;
     justify-content: center;
     align-items: center;
     margin:10vh auto;
@@ -22,30 +22,35 @@
 
 }
 .heading{
-    font:800 6vw Sans-serif;
+    font:800 3em Sans-serif;
 }
 p{
-    font:600 3em Sans-serif;
+    font:600 2em Sans-serif;
 }
 li{
     font:600 3em Sans-serif;
 }
-textarea{
+.textBox{
     margin:5vh 1vw;
     height:5vh;
     width:70vw;
-    font:400 1em Sans-serif;
-    word-wrap: wrap;
+    font:2em Sans-serif;
 }
 .add,.submit{
     padding:1vh;
     font:600 1.5em sans-serif;
 }
 .reset{
+    margin-top:5vh;
     padding:1vh;
     font:600 1.5em sans-serif;
 }
 .output{
     background-color:rgba(160, 224, 31, 0.52);
     box-shadow: 1vh 1vh rgb(10, 148, 28);
+}
+.toPrint{
+    background-color: #fff;
+    border: 0.5vw black solid;
+    padding:2vw;
 }

@@ -1,14 +1,17 @@
 let words=[];
-document.querySelector(".reset").addEventListener("click",reset)
-document.querySelector(".add").addEventListener("click",()=>{
-    words.push(document.querySelector("textarea").value)
-    document.querySelector("textarea").value = "";
-    document.querySelector("textarea").focus();
-    
-});
+document.querySelector(".reset").addEventListener("click",reset);
+document.querySelector(".add").addEventListener("click",adder);
 
+function adder(){
+    words.push(document.querySelector(".textBox").value)
+    document.querySelector(".textBox").value = "";
+    document.querySelector(".textBox").focus();
+    
+}
 document.querySelector(".submit").addEventListener("click",function (){
-    let text = scrambler(document.querySelector("textarea").value)
+    if(words.length === 0)
+        return null;
+    let text = scrambler(document.querySelector(".textBox").value)
     let sentences = document.querySelector(".myList")
     for(let i = 0;i<words.length;i++){
         para = document.createElement("h3")
@@ -50,7 +53,11 @@ function scrambler(word){
         word[rnd] = tmp;
     }
     word = word.join().replaceAll(",",splitGap).toLowerCase()
-    word = word + "<br>____________________________________"
+    let space = "__"
+    for (let x = 0 ; x<word.length;x++){
+        space+="__"
+    }
+    word = word + "<br>"+space;
     return(word)
 }
 
