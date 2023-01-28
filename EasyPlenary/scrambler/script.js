@@ -1,27 +1,43 @@
+let words=[];
+document.querySelector(".reset").addEventListener("click",reset)
+document.querySelector(".add").addEventListener("click",()=>{
+    words.push(document.querySelector("textarea").value)
+    document.querySelector("textarea").value = "";
+});
+
 document.querySelector(".submit").addEventListener("click",function (){
-    console.log("Click")
     let text = scrambler(document.querySelector("textarea").value)
-    let input = document.querySelector(".input");
-    let output = document.querySelector(".output");
     let sentences = document.querySelector(".myList")
-
-    input.style.display = "none";
-    output.style.display = "block";
-
-   let li = document.createElement("li")
-   li.innerText = scrambler(text)
-   sentences.appendChild(li)
-   
+    for(let i = 0;i<words.length;i++){
+        para = document.createElement("h3")
+        para.innerText = scrambler(words[i])
+            sentences.appendChild(para)
+    }
+    switchWindow();
 
 });
-document.querySelector(".reset").addEventListener("click",()=>{
-    let input = document.querySelector(".input");
+function switchWindow(){
     let output = document.querySelector(".output");
-    input.style.display = "block";
-    output.style.display = "none";
-})
-document.querySelector("textarea")
+    let input = document.querySelector(".input");
+    if (output.style.display === "flex"){
+        input.style.display = "flex";
+        output.style.display = "none";
+    }else{
+        input.style.display = "none";
+        output.style.display = "flex";
+    }
+}
+function reset(){
+    let sentences = document.querySelector(".myList")
+    switchWindow();
+    let allLi = document.querySelectorAll("h3");
+    while(sentences.firstElementChild != null){
+        console.log(sentences.firstElementChild)
+        sentences.removeChild(sentences.firstElementChild);
+    }
+    words = []
 
+}
 function scrambler(word){
     let rnd,splitGap;
     word.split(" ").length > 2 ? splitGap = " " : splitGap = "";
