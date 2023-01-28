@@ -9,7 +9,8 @@ function createCircle(radius){
         }
     }
 }
-const circle = CreateCircle(1)
+const circle = CreateCircle(1)  // Circle is now made a circle
+                                // by the use of return
 
 // Constructor Function 
 function Circle(radius){
@@ -23,3 +24,5 @@ const another = new Circle(1)
 
 // The difference between these 2 is purely down to background and preference
 
+// Fsctory functions return a copy of the class, Constructor functions create new instances
+ 
